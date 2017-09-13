@@ -1,0 +1,40 @@
+@import '../../theme/palette';
+
+.monitoringComponent {
+    padding: 20px;
+    background: #fafafa;
+    font-family: 'Lucida Sans', Helvetica, Arial;
+
+    .wrapTable {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        justify-content: stretch;
+        grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
+        grid-column-gap: 2%;
+        grid-row-gap: 40px;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .youtube {
+                width: 100%;
+                height: 100%;
+                border: 0;
+
+                .video {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .lang {
+                color: #555;
+                text-align: center;
+                line-height: 2.5em;
+            }
+        }
+    }
+}
