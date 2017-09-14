@@ -1,41 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+// import load from 'load-script';
 
 import Styles from './styles.scss';
 
+// let scriptLoaded = false;
+
 export default class Brightcove extends Component {
     static propTypes = {
-        dataAccount: PropTypes.string.isRequired,
-        dataPlayer:  PropTypes.string.isRequired,
-        dataVideoId: PropTypes.string.isRequired
+        account: PropTypes.string.isRequired,
+        player:  PropTypes.string.isRequired,
+        videoId: PropTypes.string.isRequired
     };
-
-    brightcove (dataVideoId, dataAccount, dataPlayer) {
-        return {
-            __html: `<video
-                data-video-id=${dataVideoId}
-                data-account=${dataAccount}
-                data-player=${dataPlayer}
-                data-embed="default"
-                data-application-id
-                class="video-js"
-                controls
-            ></video>`
-        };
-    }
+    //
+    // componentWillMount () {
+    //     if (!scriptLoaded) {
+    //         load('http://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
+    //         scriptLoaded = true;
+    //     }
+    // }
 
     render () {
         const {
-            dataAccount,
-            dataPlayer,
-            dataVideoId
+            account,
+            player,
+            videoId
         } = this.props;
 
         return (
-            <div
-                className = { Styles.brightcove }
-                dangerouslySetInnerHTML = { this.brightcove(dataVideoId, dataAccount, dataPlayer) }>
-            </div>
+            <section className = { Styles.brightcoveComponent }>
+                <div>
+                    <video
+                        controls
+                        data-application-id
+                        className = 'video-js'
+                        data-account = { account }
+                        data-embed = 'default'
+                        data-player = { player }
+                        data-video-id = { videoId }
+                    />
+                </div>
+            </section>
         );
     }
 }

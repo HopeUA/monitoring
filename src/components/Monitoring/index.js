@@ -1,165 +1,101 @@
-// Core
 import React, { Component } from 'react';
-import Brightcove from '../Brightcove';
+import PropTypes from 'prop-types';
+import load from 'load-script';
+
 import YouTube from 'react-youtube';
+import Brightcove from '../Brightcove';
+import NotFound from '../NotFound';
+
+import configs from '../../routes/index';
 
 // Instruments
 import Styles from './styles.scss';
 
 export default class Monitoring extends Component {
+    static propTypes = {
+        match: PropTypes.object.isRequired
+    };
+
+    componentWillMount () {
+        load('http://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
+    }
+
     render () {
-        const playerParams = {
-            playerVars: {
-                iv_load_policy: 3,
-                modestbranding: 1,
-                rel:            0
-            },
-            height: '360',
-            width:  '640'
-        };
-
-        return (
+        const { page } = this.props.match.params;
+        let config = {};
+        let component = (
             <section className = { Styles.monitoringComponent }>
-                <div className = { Styles.wrapTable }>
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574865536001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'IKkAGOqaEas'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Ukrainian</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574865536001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'irtAA_ulYQY'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Russian</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574873201001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'vUn04UsHFIw'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>English</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574855632001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'p_olCTtqbNo'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Polish</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574853565001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'Qz2TGhoJowI'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Spanish</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574875541001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'zpXYfPwIXjM'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Serbian</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574861031001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = '5dqNWD7q8RA'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>Arabic</div>
-                    </div>
-
-                    <div className = { Styles.item }>
-                        <Brightcove
-                            className = { Styles.video }
-                            dataAccount = '5467539707001'
-                            dataPlayer = 'BJgK0Gh85Z'
-                            dataVideoId = '5574875546001'
-                        />
-                        <div className = { Styles.youtube }>
-                            <YouTube
-                                className = { Styles.video }
-                                opts = { playerParams }
-                                videoId = 'pRi71hEfC2c'
-                            />
-                        </div>
-                        <div className = { Styles.lang }>
-                            Signs
-                        </div>
-                    </div>
-                </div>
+                <NotFound />
             </section>
         );
+
+        for (const [key, value] of Object.entries(configs)) {
+            if (key === page) {
+                config = value;
+            }
+        }
+        if (config) {
+            const playerParams = {
+                playerVars: {
+                    iv_load_policy: 3,
+                    modestbranding: 1,
+                    rel:            0
+                },
+                width:  '480',
+                height: '360'
+            };
+
+            const players = config.items.map((item) => {
+                const {
+                    title,
+                    sources: {
+                        youtube: {
+                            id: youtubeId
+                        },
+                        brightcove: {
+                            account,
+                            player,
+                            videoId: brightcoveId
+                        }
+                    }
+                } = item;
+
+                return (
+                    <div
+                        className = { Styles.item }
+                        key = { title }>
+                        <div className = { Styles.brightcove }>
+                            <Brightcove
+                                account = { account }
+                                className = { Styles.video }
+                                player = { player }
+                                videoId = { brightcoveId }
+                            />
+                        </div>
+                        <div className = { Styles.title }>
+                            { title }
+                        </div>
+                        <div className = { Styles.youtube }>
+                            <YouTube
+                                className = { Styles.video }
+                                opts = { playerParams }
+                                videoId = { youtubeId }
+                            />
+                        </div>
+                    </div>
+                );
+            });
+
+            component = (
+                <section className = { Styles.monitoringComponent }>
+                    <h1>{ config.head }</h1>
+                    <div className = { Styles.wrapTable }>
+                        { players }
+                    </div>
+                </section>
+            );
+        }
+
+        return component;
     }
 }
