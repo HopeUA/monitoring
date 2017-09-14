@@ -17,12 +17,12 @@ export default class Monitoring extends Component {
     };
 
     componentWillMount () {
-        load('http://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
+        load('https://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
     }
 
     render () {
         const { page } = this.props.match.params;
-        let config;
+        let config = {};
         let component = (
             <section className = { Styles.monitoringComponent }>
                 <NotFound />
@@ -34,10 +34,10 @@ export default class Monitoring extends Component {
                 config = value;
             }
         }
-        if (config) {
+        if (config !== null) {
             const playerParams = {
                 playerVars: {
-                    iv_load_policy: 3,
+                    iv_load_policy: 3, // eslint-disable-line
                     modestbranding: 1,
                     rel:            0
                 },
