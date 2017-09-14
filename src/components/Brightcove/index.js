@@ -34,7 +34,7 @@ export default class Brightcove extends Component {
                         controls
                         data-application-id
                         className = 'video-js'
-                        data-account = { accountId }
+                        data-account = { accountI }
                         data-embed = 'default'
                         data-player = { playerId }
                         data-video-id = { videoId }
