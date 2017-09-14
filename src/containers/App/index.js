@@ -1,13 +1,13 @@
 // Core
 import React, { Component } from 'react';
 
-import Monitoring from '../../components/Monitoring';
+import Main from '../../components/Main';
 
 export default class App extends Component {
     render () {
         return (
             <section>
-                <Monitoring />
+                <Main />
             </section>
         );
     }
