@@ -1,5 +1,5 @@
-import hope from './hope.json';
+import td from './hope.json';
 
 export default {
-    hope
+    td
 };
