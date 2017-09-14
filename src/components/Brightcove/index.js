@@ -1,42 +1,42 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import load from 'load-script';
+import Helmet from 'react-helmet';
 
 import Styles from './styles.scss';
 
-// let scriptLoaded = false;
-
 export default class Brightcove extends Component {
     static propTypes = {
-        account: PropTypes.string.isRequired,
-        player:  PropTypes.string.isRequired,
-        videoId: PropTypes.string.isRequired
+        accountId: PropTypes.string.isRequired,
+        playerId:  PropTypes.string.isRequired,
+        videoId:   PropTypes.string.isRequired
     };
-    //
-    // componentWillMount () {
-    //     if (!scriptLoaded) {
-    //         load('http://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
-    //         scriptLoaded = true;
-    //     }
-    // }
 
     render () {
         const {
-            account,
-            player,
+            accountId,
+            playerId,
             videoId
         } = this.props;
 
+        const script = `https://players.brightcove.net/${accountId}/${playerId}_default/index.min.js`;
+
         return (
             <section className = { Styles.brightcoveComponent }>
+                <Helmet>
+                    <script
+                        charSet = 'utf-8'
+                        src = { script }
+                        type = 'text/javascript'
+                    />
+                </Helmet>
                 <div>
                     <video
                         controls
                         data-application-id
                         className = 'video-js'
-                        data-account = { account }
+                        data-account = { accountId }
                         data-embed = 'default'
-                        data-player = { player }
+                        data-player = { playerId }
                         data-video-id = { videoId }
                     />
                 </div>
