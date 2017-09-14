@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import load from 'load-script';
 
 import YouTube from 'react-youtube';
 import Brightcove from '../Brightcove';
@@ -15,10 +14,6 @@ export default class Monitoring extends Component {
     static propTypes = {
         match: PropTypes.object.isRequired
     };
-
-    componentWillMount () {
-        load('https://players.brightcove.net/5467539707001/BJgK0Gh85Z_default/index.min.js');
-    }
 
     render () {
         const { page } = this.props.match.params;
@@ -50,11 +45,11 @@ export default class Monitoring extends Component {
                     title,
                     sources: {
                         youtube: {
-                            id: youtubeId
+                            videoId: youtubeId
                         },
                         brightcove: {
-                            account,
-                            player,
+                            accountId,
+                            playerId,
                             videoId: brightcoveId
                         }
                     }
@@ -66,9 +61,9 @@ export default class Monitoring extends Component {
                         key = { title }>
                         <div className = { Styles.brightcove }>
                             <Brightcove
-                                account = { account }
+                                accountId = { accountId }
                                 className = { Styles.video }
-                                player = { player }
+                                playerId = { playerId }
                                 videoId = { brightcoveId }
                             />
                         </div>
