@@ -22,7 +22,7 @@ export default class Monitoring extends Component {
 
     render () {
         const { page } = this.props.match.params;
-        let config = {};
+        let config;
         let component = (
             <section className = { Styles.monitoringComponent }>
                 <NotFound />
