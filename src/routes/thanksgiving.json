@@ -1,109 +1,132 @@
 {
-  "head": "ThanksGiving Day",
-  "items": [
+  "head": "Thanksgiving Day",
+  "streams": [
     {
+      "id": "uk",
       "title": "Ukrainian",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type": "youtube",
           "videoId": "IKkAGOqaEas"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574859652001"
         }
-      }
+      ]
     },
     {
+      "id": "ru",
       "title": "Russian",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type": "youtube",
           "videoId": "irtAA_ulYQY"
         },
-        "brightcove": {
+        { "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574865536001"
         }
-      }
+      ]
     },
     {
+      "id": "en",
       "title": "English",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "vUn04UsHFIw"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574873201001"
         }
-      }
+      ]
     },
     {
+      "id": "pl",
       "title": "Polish",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "p_olCTtqbNo"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574855632001"
         }
-      }
+      ]
     },
     {
+      "id": "es",
       "title": "Spanish",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "Qz2TGhoJowI"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574853565001"
         }
-      }
+      ]
     },
     {
+      "id": "ro",
       "title": "Romanian",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "zpXYfPwIXjM"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574875541001"
         }
-      }
+      ]
     },
     {
+      "id": "fa",
       "title": "Farsi",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "5dqNWD7q8RA"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574861031001"
         }
-      }
+      ]
     },
     {
+      "id": "signs",
       "title": "Signs",
-      "sources": {
-        "youtube": {
+      "sources": [
+        {
+          "type:": "youtube",
           "videoId": "pRi71hEfC2c"
         },
-        "brightcove": {
+        {
+          "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574875546001"
         }
-      }
+      ]
     }
   ]
 }

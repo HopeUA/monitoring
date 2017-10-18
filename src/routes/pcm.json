@@ -1,24 +1,22 @@
 {
-  "head": "Hope.UA",
+  "head": "PCM",
   "streams": [
     {
-      "title": "Hope",
+      "title": "PCM",
       "sources": [
         {
+          "info": "Russian",
           "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
-          "videoId": "5574859652001"
+          "videoId": "5615963355001"
         },
         {
+          "info": "English",
           "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
-          "videoId": "5574859652001"
-        },
-        {
-          "type": "youtube",
-          "videoId": "irtAA_ulYQY"
+          "videoId": "5615971316001"
         }
       ]
     }
