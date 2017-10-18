@@ -29,17 +29,15 @@ export default class Brightcove extends Component {
                         type = 'text/javascript'
                     />
                 </Helmet>
-                <div>
-                    <video
-                        controls
-                        data-application-id
-                        className = 'video-js'
-                        data-account = { accountId }
-                        data-embed = 'default'
-                        data-player = { playerId }
-                        data-video-id = { videoId }
-                    />
-                </div>
+                <video
+                    controls
+                    data-application-id
+                    className = 'video-js'
+                    data-account = { accountId }
+                    data-embed = 'default'
+                    data-player = { playerId }
+                    data-video-id = { videoId }
+                />
             </section>
         );
     }
