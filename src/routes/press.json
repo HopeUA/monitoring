@@ -1,24 +1,29 @@
 {
-  "head": "Hope.UA",
+  "head": "Press Conferense",
   "streams": [
     {
       "title": "Hope",
       "sources": [
         {
+          "info": "pseudoinfo-1",
           "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574859652001"
         },
         {
+          "info": "pseudoinfo-2",
           "type": "brightcove",
           "accountId": "5467539707001",
           "playerId": "BJgK0Gh85Z",
           "videoId": "5574859652001"
         },
         {
+          "info": "pseudoinfo-2",
           "type": "youtube",
-          "videoId": "irtAA_ulYQY"
+          "accountId": "5467539707001",
+          "playerId": "BJgK0Gh85Z",
+          "videoId": "5574859652001"
         }
       ]
     }

@@ -1,6 +1,10 @@
 @import '../../theme/palette';
 
 .monitoringComponent {
+    display: grid;
+    grid-template-rows: 6em auto;
+    align-content: stretch;
+    justify-content: stretch;
     min-width: 1000px;
     min-height: 100vh;
     padding: 20px 30px;
@@ -13,38 +17,87 @@
         margin-bottom: 1.2em;
     }
 
-    .wrapTable {
+    .streams {
         display: grid;
         width: 100%;
         height: 100%;
         justify-content: stretch;
-        grid-template-columns: 23.5% 23.5% 23.5% 23.5%;
-        grid-column-gap: 2%;
+        align-content: start;
         grid-row-gap: 2em;
 
-        .item {
-            display: flex;
-            padding: 3px 3px 0 3px;
+        &.has1child {
+            align-content: stretch;
+            grid-template-columns: 100%;
+
+            .stream {
+                align-content: start;
+            };
+        }
+
+        .stream {
+            display: grid;
+            grid-template-rows: 2em;
+            align-content: start;
+            justify-content: stretch;
+            padding: 3px;
             border: 1px solid darken($paletteColor3, 10%);
             border-radius: 2px;
-            flex-direction: column;
-            align-items: center;
             background-color: #FFFFFF;
 
-            .youtube, .brightcove {
-                width: 100%;
-                height: 100%;
-
-                .video {
-                    width: 100%;
-                    height: 100%;
-                }
-            }
-
             .title {
+                margin: 0;
                 text-align: center;
                 line-height: 1.8em;
-                font-size: .8em;
+                font-size: 1.1em;
+            }
+
+            .sources {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                grid-row-gap: .5em;
+
+                //&.has1child {
+                //    grid-template-areas: "first first first first first first first first first first first first";
+                //}
+
+                &.has2children {
+                    grid-column-gap: 2%;
+                    grid-template-areas: "first first first first first first second second second second second second";
+                }
+
+                //&.has3children {
+                //    grid-template-areas:
+                //            "first first first first first first second second second second second second"
+                //            ". . . third third third third third third . . .";
+                //    grid-column-gap: 2%;
+                //}
+
+                .source:nth-of-type(1) {
+                    grid-area: first;
+                }
+
+                .source:nth-of-type(2) {
+                    grid-area: second;
+                }
+
+                .source:nth-of-type(3) {
+                    grid-area: third;
+                }
+
+                .source {
+                    width: 100%;
+
+                    .meta {
+                        text-align: center;
+                        line-height: 1.8em;
+                        font-size: .8em;
+                    }
+
+                    .video {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
             }
         }
     }

@@ -3,23 +3,15 @@
 .brightcoveComponent {
     display: block;
     position: relative;
-    max-width: 100%;
+    width: 640px;
+    height: 360px;
+    margin: auto;
     overflow: hidden;
 
-    div {
+    :global(.video-js) {
         margin: 0;
         padding: 0;
         width: inherit;
-
-        video {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
+        height: inherit;
     }
 }
